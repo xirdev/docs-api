@@ -1,0 +1,339 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="vsl.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="vsl.html">
+            
+                <a href="vsl.html">
+            
+                    
+                    The VSL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="http_api.html">
+            
+                <a href="http_api.html">
+            
+                    
+                    HTTP Api
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="kv4.html">
+            
+                <a href="kv4.html">
+            
+                    
+                    KV4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="rpi_and_devices.html">
+            
+                <a href="rpi_and_devices.html">
+            
+                    
+                    Devices and Neurons
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="platform-overview">Platform Overview</h1>
+<p>Xirsys WebRTC is based on a more general platform. Although the main focus of Xirsys is WebRTC, the platform is capable of supporting multiple services in a consistent way.</p>
+<h2 id="kv4">KV4</h2>
+<p>Consistency is derived from KV4, a 4 dimensional K\/V Store. KV4 provides a scalable, distributed means of storing values (json objects) indexed by path, layer and key, with the added attribute of time-series.</p>
+<p>To maintain compatibility with previous version of Xirsys we index into the store primarily by &quot;path&quot;, a typical file system URI. We then add a second means of indexing by layer, best visualized as a second tree layered on the first.
+<img src="layers.png" alt="">
+Any intersection of path\/layer provides a hashtable which you may store &quot;infinite&quot; k\/vs.</p>
+<p>Further, each value deposited at a given path\/key\/layer will not be overwritten but added to, providing a time series. Any casual query always retrieves the latest value, but you may retrieve the entire time series.</p>
+<p>More information on the implementation of KV4 <a href="kv4.html">here</a>.</p>
+<h2 id="services">Services</h2>
+<p>Given the KV4 model, how does Xirsys allow services to add data for their configuration and operation?</p>
+<p>Simply by allowing each service to create their own layers. For example:</p>
+<ul>
+<li>The turn service is designated by the layer name *turn.</li>
+<li>The namespace service (public tree) stores it&apos;s data in the *ns layer.</li>
+<li>The accounts service stores data in the *acc layer.</li>
+</ul>
+<p>Each service can effectively create it&apos;s own set of paths to data, they are not restricted to system specified paths. For example, the namespace service provides user defined paths, whereas the account service provides a \/accounts path - it&apos;s up to each service to partition it&apos;s own data.</p>
+<p>Crucial to all potential services is scaling. If we get a consistent data model scaling over an arbitrary number of nodes, then we have the ability to scale the producers of arbitrary data (services) over those nodes too - the solution to this problem is the Xirsys platforms secret sauce.</p>
+<h3 id="built-in-services">Built-in Services</h3>
+<p>Currently the following internal services are recognized:</p>
+<ul>
+<li>Accounts</li>
+<li>Namespace</li>
+<li>Discovery</li>
+<li>Sessions</li>
+<li>Configuration</li>
+<li>Subscriptions</li>
+<li>Statistics</li>
+</ul>
+<h3 id="external-services">External Services</h3>
+<p>Currently the following external services are recognized:</p>
+<ul>
+<li>Turn</li>
+</ul>
+<h2 id="api-consistency">API Consistency</h2>
+<p>Because data for all services is handled in a consistent manner, then the API to all the data may be accessed consistently too.</p>
+<p>The API to all data is &quot;restful&quot; in that you may POST\/PUT\/GET\/DELETE to any service, via the following template.</p>
+<pre><code>curl http://un:pw@domain/_service/recognised/path
+</code></pre><p>Remember the layer name is the service name. Thus if you want to query an account with key &quot;ritchie&quot;</p>
+<pre><code>curl http://un:pw@domain/_acc/accounts?k=ritchie
+</code></pre><p>The same goes for external services.</p>
+<p>If I want to create a new turn session i would PUT to the turn service,</p>
+<pre><code>curl -X PUT http://un:pw@domain/_turn/path/to/room -d {some json data}
+</code></pre><p>Why is this external? External services are not part of what is known as the VSL, the Virtual System Layer (an Erlang node). The curl command is proxied through a VSL to a known node that provides the service, in this case turn.</p>
+<p>A VSL contains logic for returning the least loaded existing external service or to start up the service if necessary by launching new service nodes.</p>
+<p>Please see full API documentation <a href="http_api.html">here</a>.</p>
+<h2 id="virtual-system-layer">Virtual System Layer</h2>
+<p>A VSL is an Elixir\/Erlang node and is the base runtime which knows how to talk to all other VSL nodes in a cluster.</p>
+<p>The Xirsys platform provides multiple VSL per regional cluster.</p>
+<p>Each VSL is a complete running system, that is, as long as 1 VSL is running it can deliver all baseline services and the API to access those services.</p>
+<p>The baseline services offered by the current VSL are:</p>
+<ol>
+<li>KV4 Access</li>
+<li>Websockets</li>
+<li>HTTP API</li>
+<li>Dashboard</li>
+<li>Node Bus - Pubsub between VSLs as they come on\/off line. VSLs know about each other.</li>
+<li>High level abstractions for Accounts, Sessions, Configurations, Logging, Subscriptions.</li>
+</ol>
+<p>Other services, e.g. turn, are treated as external services.</p>
+<p>See VSL docs <a href="vsl.html">here</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="vsl.html" class="navigation navigation-next navigation-unique" aria-label="Next page: The VSL">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"The VSL","level":"1.2","depth":1,"path":"vsl.md","ref":"vsl.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-11-13T12:41:11.435Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-13T14:27:15.892Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
