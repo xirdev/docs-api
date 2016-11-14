@@ -199,14 +199,3 @@ curl -s "http://elena#lily:068564e6-ec1e-11e5-b3d6-09c98c1c18d8@endpoint/_ns/?de
     "a/path/that/lily/created"  ],  "s": "ok"}
 
 **All other services will authorize in the same way.**
-
-
-# Host Service
-
-_host provides details about servers currently operating in the system. Currently you can query turn and signals hosts.
-
-curl -s "https://async:secret@endpoint/_host/best/signal" | jq .                                                                                                                 {"v": "wss://euro3.xirsys.com:4005/ws","s": "ok"}
-
-/_host/best provides the best load balanced signals machine from the current cluster. This is equivalent to the APIV2 /wsList.
-
-Similarly for _hosts/best/turn.
