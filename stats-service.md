@@ -110,13 +110,17 @@ You may not delete stats.
 
 ### Router Packets
 
-`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:3&ge=2016:3:16:6&break=1"  | jq .{"v": {  "2016:3:16:5": {    "sum": 25349,    "min": 48,    "max": 51,    "count": 501  }},"s": "ok"}`
+`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:3&ge=2016:3:16:6&break=1"  | jq .
+
+{"v": {  "2016:3:16:5": {    "sum": 25349,    "min": 48,    "max": 51,    "count": 501  }},"s": "ok"}`
 
 Here we've added grouping to the hour level, the query was between 3 - 6 hours, but the only data was for the 5th hour.
 
 Let's break down the 5th hour packet and find stats over the first 10 mins of the hour ...
 
-`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:5:0&ge=2016:3:16:5:10"  | jq .{"v": {  "sum": 560,  "min": 50,  "max": 51,  "count": 11},"s": "ok"}`
+`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:5:0&ge=2016:3:16:5:10"  | jq .
+
+{"v": {  "sum": 560,  "min": 50,  "max": 51,  "count": 11},"s": "ok"}`
 
 There were 11 packets in the first 10 mins of the 5 hour in total, but we can break that down further into which minutes ...
 
