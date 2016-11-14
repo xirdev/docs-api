@@ -50,7 +50,7 @@ Each Neuron knows about all users attached to a given channel (path) via Websock
 
 Xirsys Cluster Management (XCM) is still a work in progress, but currently manages 4 clusters and 20 hosts for Xirsys.
 
-XCM is designed for simple ops management by a small team. Thus there are 2 requirements, docker requires to be installed on all machines participating, and a single CouchDB instance is required to tie all hosts together. So there are 2 moving parts. Usefully, Cloudant can be utilized instead of your own CouchDB installation which is a very useful option, XCM can also download and boot a CouchDB instance off of hub.docker.io as an alternative.
+XCM is designed for simple ops management by a small team. Thus there are 2 requirements, docker requires to be installed on all machines participating, and a single CouchDB instance is required to tie all hosts together. Usefully, Cloudant can be utilized instead of your own CouchDB installation which is a very useful option.
 
 We like to think of XCM as a cloud based application server, as it’s easily deployed, and integrated directly into a typical Git based development workflow, removing for the most part (depending on application) the "docker build" phase from the development cycle.
 
