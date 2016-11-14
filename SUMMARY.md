@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Namespace Service](namespace-servoce.md)
-* Subscription Service
+* [Subscription Service](subscription-service.md)
 * [Stats Service](stats-service.md)
 * [Account Service](account-service.md)
 * [Token Service](token-service.md)
