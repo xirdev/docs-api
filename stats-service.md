@@ -62,13 +62,17 @@ Important entities for the user are typically the paths created in their public 
 
 For example, here is a measure of router packets on the system bus, the entity /runtime/hosts/active is only available to the sys user, but substitute your own creds and path in to retrieve the stats for the packets transferred over the given path/topic (i.e. the measurement (router:pkt) can be reused over multiple entities).
 
-curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt"  | jq .{"v": {"sum": 30561,"min": 48,"max": 51,"count": 604},"s": "ok"}The interpretation is; there have been 604 packets published by the router(s) on the /runtime/host/active channel; the accumulated size of the packets was 30561 bytes, the smallest of which was 48 bytes, the largest of which was 51 bytes.
+`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt"  | jq .
+
+{"v": {"sum": 30561,"min": 48,"max": 51,"count": 604},"s": "ok"}`
+
+The interpretation is; there have been 604 packets published by the router(s) on the /runtime/host/active channel; the accumulated size of the packets was 30561 bytes, the smallest of which was 48 bytes, the largest of which was 51 bytes.
 
 ## The Stats Call ....
 
 `curl "https://user:secret@endpoint/_stats/my/path?l=measurement&gs=y:m:d:h:min&ge=y:m:d:h:min&break=1"`
 
-The measurement is provided using the l (layer) parameter. This is actually, very precise, as the kv4 layer is used to record the measurement axis.
+The measurement is provided using the l (layer) parameter. The kv4 layer is used to record the measurement axis.
 
 Note: Typically you will be measuring against user defined namespace entities, as this is the historical use of the system, but other entities that various services find useful could be exposed. So, the stats entity (path) is not limited to namespace paths.
 
@@ -94,10 +98,6 @@ You'll get a list of sum/count/max/min for each day, or without break=1 the tota
 
 **Note: Stats are accumulated and posted every 15 secs to the database, so you won't get instant response_**
 
-## Limitations
-
-Stats is currently limited in it's breakdowns as the underlying database engine only provides 1 set of group breakdowns at a time, and currently we've plumped for grouping by time to the minute level. For example, being able to break down by layer tags, and partial paths, simultaneous to time, would totally rock, but this can't be achieved efficiently atm.
-
 ## Create
 
 **You may create stats (example required)**
@@ -120,21 +120,30 @@ Let's break down the 5th hour packet and find stats over the first 10 mins of th
 
 There were 11 packets in the first 10 mins of the 5 hour in total, but we can break that down further into which minutes ...
 
-`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:5:0&ge=2016:3:16:5:10&break=1"  | jq .{"v": {  "2016:3:16:5:9": {    "sum": 50,    "min": 50,    "max": 50,    "count": 1  },  "2016:3:16:5:10": {    "sum": 510,    "min": 51,    "max": 51,    "count": 10  }},"s": "ok"}`
+`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:5:0&ge=2016:3:16:5:10&break=1"  | jq .
+
+{"v": 
+{  "2016:3:16:5:9": 
+{    "sum": 50,    "min": 50,    "max": 50,    "count": 1  },  "2016:3:16:5:10": {    "sum": 510,    "min": 51,    "max": 51,    "count": 10  }},"s": "ok"}`
 
 ### API Calls
 
 api:3 is a good example of a measurement, measured against some entity not created by namespace, but rather, stats creates the path /service/METHOD for you to query against, e.g. how many GETs have I done against the data service?
 
-`curl -s "http://user:secret@endpoint/_stats/data/GET?k=user&l=api:3"  |jq .{"v": {  "sum": 5,  "min": 1,  "max": 1,  "count": 5  },  "s": "ok"}`
+`curl -s "http://user:secret@endpoint/_stats/data/GET?k=user&l=api:3"  |jq .
+
+{"v": {  "sum": 5,  "min": 1,  "max": 1,  "count": 5  },  "s": "ok"}`
 
 or how many calls against the stats service …
 
-`curl -s "http://user:secret@endpoint/_stats/stats/GET?k=user&l=api:3"  |jq .{ "v": {   "sum": 23,   "min": 1,   "max": 1,   "count": 23 }, "s": "ok" }`
+`curl -s "http://user:secret@endpoint/_stats/stats/GET?k=user&l=api:3"  |jq .
+
+{ "v": {   "sum": 23,   "min": 1,   "max": 1,   "count": 23 }, "s": "ok" }`
 
 which increases by 1 every time I call it.
 
-`curl -s "http://user:secret@endpoint/_stats/?l=api:3&gs=2016:3:6&ge=2016:3:8&break=0"  |jq .                                                                                       {"v": {    "2016:3:8": {      "sum": 93,      "min": 1,      "max": 1,      "count": 93    },    "2016:3:7": {      "sum": 57,      "min": 1,      "max": 1,      "count": 57    },    "2016:3:6": {      "sum": 9,      "min": 1,      "max": 1,      "count": 9    }  },  "s": "ok"}`
+`curl -s "http://user:secret@endpoint/_stats/?l=api:3&gs=2016:3:6&ge=2016:3:8&break=0"  |jq . 
+                                                                                      {"v": {    "2016:3:8": {      "sum": 93,      "min": 1,      "max": 1,      "count": 93    },    "2016:3:7": {      "sum": 57,      "min": 1,      "max": 1,      "count": 57    },    "2016:3:6": {      "sum": 9,      "min": 1,      "max": 1,      "count": 9    }  },  "s": "ok"}`
 
 In this example, only the measurement is present (l=api:3), no key or path exists thus we get a full breakdown of calls over api:v3, totals calls by hour.
 
