@@ -2,9 +2,9 @@
 
 Each service can create it's own hierarchy, but typically services will interact around the hierarchy created and managed by the Xirsys account holder via the namespace service.
 
-The namespace is effectively the public tree of the user and provides backwards compatibility with previous versions of Xirsys, previously the namespace were called channels, but now could be used in a variety of scenarios, so "namspace" is more generic.
+The namespace is effectively the public tree of the user and provides backwards compatibility with previous versions of Xirsys. Previously namespace were called channels, but can now be used in more scenarios, thus namespace is the more generic term.
 
-The namespace is a hint to all services, that the user has a specific hierarchy of names they want to work with, it is then up to the service if that namespace can be used in its context - if so, better, as it provides more context for the user.
+The namespace is a hint to all services that the user has a specific hierarchy of names they want to work with, it is then up to the service if that namespace can be used in its context - if so, better, as it provides more context for the user.
 
 **Note: In the current version of Xirsys there is no "referential integrity" between layers, so paths in one layer are not tied to paths in others - only by convention.
 **
