@@ -6,7 +6,11 @@
 
 .markdown-section {
     color: white;
-    code {
-        background-color: #846161 ;
-    }
+}
+
+.markdown-section code {
+    padding: .2em;
+    margin: 0;
+    font-size: .85em;
+    background-color: #f7f7f7;
 }
