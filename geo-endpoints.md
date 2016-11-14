@@ -10,7 +10,7 @@ Xirsys is now available in the following regions:
 |Asia| ss.xirsys.com| Singapore|
 |Australia| ms.xirsys.com| Melbourne|
 
-as demand grows more data centers will be added. Each of these data centers contains a Xirsys cluster.
+as demand grows more data centers will be added. Each of these data centers contains a Xirsys cluster. All of these endpoints are equivalent and host the entire Xirsys REST API.
 
 # Geo Service
 
