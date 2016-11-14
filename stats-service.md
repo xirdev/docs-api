@@ -152,7 +152,7 @@ Grafana ([http://grafana.org](http://grafana.org)) is a terrific real time data 
 
 Xirsys leverages Grafana visualization by providing a data source that uses the standard Xirsys REST Api as a datasource.
 
-![image alt text](image_2.png)
+
 
 Simply point Grafana at one of our many cluster entry urls **using your own credentials** and you may access your data in the measurement/entity configuration of the Xirsys stats service.
 
