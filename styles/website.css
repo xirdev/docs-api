@@ -6,6 +6,7 @@
 
 .markdown-section {
     color: white;
+    backgroud-color: grey;
 }
 
 .markdown-section code { padding: .2em; margin: 0; font-size: .85em; background-color: black;} !
