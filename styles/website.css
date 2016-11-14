@@ -1,5 +1,5 @@
 /* CSS for website */
 
-.book .book-body .page-wrapper .page-inner section.normal code {
+.book .book-body .page-wrapper .page-inner section.normal code p{
   background-color: #4c4c4e;
 }
