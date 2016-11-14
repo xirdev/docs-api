@@ -12,5 +12,6 @@
 
 
 .markdown-section table td {
- background-color: grey;
-}!
+     background-color: grey;
+    color: black;
+}
