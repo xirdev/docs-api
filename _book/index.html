@@ -59,7 +59,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="vsl.html" />
+    <link rel="next" href="vsl.md" />
     
     
 
@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="vsl.html">
+        <li class="chapter " data-level="1.2" data-path="vsl.md">
             
-                <a href="vsl.html">
+                <span>
             
                     
                     The VSL
@@ -115,9 +115,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="http_api.html">
+        <li class="chapter " data-level="1.3" data-path="http_api.md">
             
-                <a href="http_api.html">
+                <span>
             
                     
                     HTTP Api
@@ -128,9 +128,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="kv4.html">
+        <li class="chapter " data-level="1.4" data-path="kv4.md">
             
-                <a href="kv4.html">
+                <span>
             
                     
                     KV4
@@ -141,9 +141,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="rpi_and_devices.html">
+        <li class="chapter " data-level="1.5" data-path="rpi_and_devices.md">
             
-                <a href="rpi_and_devices.html">
+                <span>
             
                     
                     Devices and Neurons
@@ -207,7 +207,7 @@
 <img src="layers.png" alt="">
 Any intersection of path\/layer provides a hashtable which you may store &quot;infinite&quot; k\/vs.</p>
 <p>Further, each value deposited at a given path\/key\/layer will not be overwritten but added to, providing a time series. Any casual query always retrieves the latest value, but you may retrieve the entire time series.</p>
-<p>More information on the implementation of KV4 <a href="kv4.html">here</a>.</p>
+<p>More information on the implementation of KV4 <a href="kv4.md">here</a>.</p>
 <h2 id="services">Services</h2>
 <p>Given the KV4 model, how does Xirsys allow services to add data for their configuration and operation?</p>
 <p>Simply by allowing each service to create their own layers. For example:</p>
@@ -245,7 +245,7 @@ Any intersection of path\/layer provides a hashtable which you may store &quot;i
 <pre><code>curl -X PUT http://un:pw@domain/_turn/path/to/room -d {some json data}
 </code></pre><p>Why is this external? External services are not part of what is known as the VSL, the Virtual System Layer (an Erlang node). The curl command is proxied through a VSL to a known node that provides the service, in this case turn.</p>
 <p>A VSL contains logic for returning the least loaded existing external service or to start up the service if necessary by launching new service nodes.</p>
-<p>Please see full API documentation <a href="http_api.html">here</a>.</p>
+<p>Please see full API documentation <a href="http_api.md">here</a>.</p>
 <h2 id="virtual-system-layer">Virtual System Layer</h2>
 <p>A VSL is an Elixir\/Erlang node and is the base runtime which knows how to talk to all other VSL nodes in a cluster.</p>
 <p>The Xirsys platform provides multiple VSL per regional cluster.</p>
@@ -260,7 +260,7 @@ Any intersection of path\/layer provides a hashtable which you may store &quot;i
 <li>High level abstractions for Accounts, Sessions, Configurations, Logging, Subscriptions.</li>
 </ol>
 <p>Other services, e.g. turn, are treated as external services.</p>
-<p>See VSL docs <a href="vsl.html">here</a>.</p>
+<p>See VSL docs <a href="vsl.md">here</a>.</p>
 
                                 
                                 </section>
@@ -289,7 +289,7 @@ Any intersection of path\/layer provides a hashtable which you may store &quot;i
             
                 
                 
-                <a href="vsl.html" class="navigation navigation-next navigation-unique" aria-label="Next page: The VSL">
+                <a href="vsl.md" class="navigation navigation-next navigation-unique" aria-label="Next page: The VSL">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -300,7 +300,7 @@ Any intersection of path\/layer provides a hashtable which you may store &quot;i
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"The VSL","level":"1.2","depth":1,"path":"vsl.md","ref":"vsl.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-11-13T12:41:11.435Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-13T14:27:15.892Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"The VSL","level":"1.2","depth":1,"path":"vsl.md","ref":"vsl.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-11-13T12:41:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T10:24:06.815Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
