@@ -6,6 +6,8 @@ Through an extensible REST API Xirsys 3.0 provides custom analytics and data sto
 
 This document describes the V3 API.
 
+To read more about the platform itself, visit the Enterprise documentation.
+
 # Nomenclature
 
 The Xirsys platform uses a cellular analogy to describe it's topology and function, the API docs refer to "neurons", "cells" and so forth, so we define the terms here:
