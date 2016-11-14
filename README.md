@@ -8,12 +8,12 @@ This document describes the V3 API.
 
 # Nomenclature
 
-The Xirsys platform uses a cellular analogy to describe it's topology and function, the API docs refer to "neurons", "cells" and so forth, so we define the terms here.
+The Xirsys platform uses a cellular analogy to describe it's topology and function, the API docs refer to "neurons", "cells" and so forth, so we define the terms here:
 
-* *Stems *are containers which provide a specific runtime, e.g. Erlang, Node.js, .NET Core etc.
+* *Stems* are containers which provide a specific runtime, e.g. Erlang, Node.js, .NET Core etc.
 
 * *Cells* are applications which are loaded from a Git Repository (Github) into a stem to provide a differentiated cell (container) with a specific function.
 
-* *Neurons* are the base Xirsys functionality carried by all nodes in a Xirsys network. 
+* *Neurons* are the base Xirsys functionality carried by all nodes in a Xirsys network. For the purpose of these docs, you can think of a neuron as a host.
 
 * *Memory, *we provide an integral 4D data store accessible via REST/Websockets/TCP (tbd).
