@@ -158,13 +158,13 @@ Simply point Grafana at one of our many cluster entry urls **using your own cred
 ![](/assets/image_3.png)
 
 For example,
-
+![](/assets/image_4.png)
 
 Notice the metrics, turn:recv, turn:sent with the path that the series applies too.
 
 From the Grafana editor you may select the metrics and paths available via drop down lists (note: this applies to any stat recorded in the system, including user defined).
 
-![image alt text](image_5.png)
+![](/assets/image_5.png)
 
 ## Flexibility
 
