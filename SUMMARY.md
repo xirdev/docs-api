@@ -7,4 +7,5 @@
 * [Stats Service](stats-service.md)
 * [Account Service](account-service.md)
 * [Token Service](token-service.md)
+* [Authorization Service](authorization-service.md)
 

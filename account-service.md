@@ -200,23 +200,6 @@ curl -s "http://elena#lily:068564e6-ec1e-11e5-b3d6-09c98c1c18d8@endpoint/_ns/?de
 
 **All other services will authorize in the same way.**
 
-# Authorization Service
-
-The authorization service allows you to manage IP addresses per node that will disallow connections from the given IP range.
-
-## Deny
-
-curl -XPUT -H "Content-type: application/json" "http://async:secret@endpoint/_auth/my/path" -d '{"k": "IPADDRESS"}'
-
-The value is unimportant, as we simply utilise the key here.
-
-All services will now ignore connections from the given IP address, on the given path or below.
-
-## Allow
-
-curl -DELETE -H "http://async:secret@endpoint/_auth/my/path?k=IPADDRESS'
-
-This service is in it's infancy, and can provide a lot more going forward.
 
 # Host Service
 
