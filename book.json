@@ -1,7 +1,7 @@
 {
     "plugins": [
         "-highlight",
-        "youtube"
+        "prism"
     ],
     "pluginsConfig": {
         "theme-default": {
