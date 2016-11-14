@@ -2,7 +2,7 @@
 
 Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around Docker! The new platform is a general purpose cloud application server, which happens to do TURN.
 
-Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 supports the now legacy V2 API.
+Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 still supports the V2 API.
 
 This document describes the V3 API. To read more about the platform itself, visit the Enterprise documentation.
 
