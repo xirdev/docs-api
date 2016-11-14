@@ -4,9 +4,7 @@ Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around D
 
 Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 supports the now legacy V2 API.
 
-This document describes the V3 API.
-
-To read more about the platform itself, visit the Enterprise documentation.
+This document describes the V3 API. To read more about the platform itself, visit the Enterprise documentation.
 
 # Nomenclature
 
