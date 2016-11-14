@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        "-highlight",
+        "youtube"
+    ],
+    "pluginsConfig": {
+        "theme-default": {
+            "styles": "",
+            "showLevel": false
+        }
+    }
+}
