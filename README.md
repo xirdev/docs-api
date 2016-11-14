@@ -30,6 +30,8 @@ KV4 is a 4 dimensional key value store ....
 
 This can be viewed as a tree with multiple layers.
 
+![](/_book/layers.png)
+
 The key to understanding the Xirsys Platform is that the entire system is based on this data model, all existing and future services will use it, and you can use it, using the "data" service!
 
 
