@@ -8,6 +8,5 @@
 * [Account Service](account-service.md)
 * [Token Service](token-service.md)
 * [Hosts Service](hosts-service.md)
-* [Geo Endpoints](geo-endpoints.md)
 * [Geo Service](geo-endpoints.md)
 
