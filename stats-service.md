@@ -169,8 +169,4 @@ From the Grafana editor you may select the metrics and paths available via drop 
 ## Flexibility
 
 * You may create multiple data sources, and mix them on the same chart for comparisons.
-
 * You may run your own Grafana servers (using Docker is very simple).
-
-* Xirsys may run Grafana as a standard service on all of our hosts.
-
