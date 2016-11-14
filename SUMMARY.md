@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [Geo Service](geo-endpoints.md)
 * [Namespace Service](namespace-servoce.md)
 * [Subscription Service](subscription-service.md)
 * [Data Service](data-service.md)
@@ -8,5 +9,5 @@
 * [Account Service](account-service.md)
 * [Token Service](token-service.md)
 * [Hosts Service](hosts-service.md)
-* [Authorization Service](authorization-service.md)
+* [Geo Endpoints](geo-endpoints.md)
 
