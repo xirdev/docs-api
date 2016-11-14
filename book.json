@@ -3,11 +3,5 @@
         "-highlight",
         "prism",
         "youtube"
-    ],
-    "pluginsConfig": {
-        "theme-default": {
-            "styles": "",
-            "showLevel": false
-        }
-    }
+    ]
 }
