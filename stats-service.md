@@ -66,7 +66,7 @@ curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt
 
 ## The Stats Call ....
 
-curl "https://user:secret@endpoint/_stats/my/path?l=measurement&gs=y:m:d:h:min&ge=y:m:d:h:min&break=1"
+`curl "https://user:secret@endpoint/_stats/my/path?l=measurement&gs=y:m:d:h:min&ge=y:m:d:h:min&break=1"`
 
 The measurement is provided using the l (layer) parameter. This is actually, very precise, as the kv4 layer is used to record the measurement axis.
 
@@ -76,19 +76,19 @@ The gs and ge params are group start and group end respectively. Although typica
 
 You may enter any level of the grouping, e.g.
 
-gs=2016:2&ge=2016:3
+    gs=2016:2&ge=2016:3
 
 and be provided with the sum/count/max/min of the measurement over (in this instance) the given time period, at the level of the grouping. So, you get a single object back for the sum/count/max/min of the measurement over the time period.
 
 However, if you add the break=1 option
 
-gs=2016:2&ge=2016:3&break=1
+    gs=2016:2&ge=2016:3&break=1
 
 You'll get a list of two items over the given period, one for February and 1 for March.
 
 If you take you're grouping down a level,
 
-gs=2016:2:4&ge=2016:3:10&break=1
+    gs=2016:2:4&ge=2016:3:10&break=1
 
 You'll get a list of sum/count/max/min for each day, or without break=1 the totals between the periods given. You may take this to the minute level.
 
@@ -110,31 +110,31 @@ You may not delete stats.
 
 ### Router Packets
 
-curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:3&ge=2016:3:16:6&break=1"  | jq .{"v": {  "2016:3:16:5": {    "sum": 25349,    "min": 48,    "max": 51,    "count": 501  }},"s": "ok"}
+`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:3&ge=2016:3:16:6&break=1"  | jq .{"v": {  "2016:3:16:5": {    "sum": 25349,    "min": 48,    "max": 51,    "count": 501  }},"s": "ok"}`
 
 Here we've added grouping to the hour level, the query was between 3 - 6 hours, but the only data was for the 5th hour.
 
 Let's break down the 5th hour packet and find stats over the first 10 mins of the hour ...
 
-curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:5:0&ge=2016:3:16:5:10"  | jq .{"v": {  "sum": 560,  "min": 50,  "max": 51,  "count": 11},"s": "ok"}
+`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:5:0&ge=2016:3:16:5:10"  | jq .{"v": {  "sum": 560,  "min": 50,  "max": 51,  "count": 11},"s": "ok"}`
 
 There were 11 packets in the first 10 mins of the 5 hour in total, but we can break that down further into which minutes ...
 
-curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:5:0&ge=2016:3:16:5:10&break=1"  | jq .{"v": {  "2016:3:16:5:9": {    "sum": 50,    "min": 50,    "max": 50,    "count": 1  },  "2016:3:16:5:10": {    "sum": 510,    "min": 51,    "max": 51,    "count": 10  }},"s": "ok"}
+`curl -s  "http://%24sys:secret@endpoint/_stats/runtime/hosts/active?l=router:pkt&gs=2016:3:16:5:0&ge=2016:3:16:5:10&break=1"  | jq .{"v": {  "2016:3:16:5:9": {    "sum": 50,    "min": 50,    "max": 50,    "count": 1  },  "2016:3:16:5:10": {    "sum": 510,    "min": 51,    "max": 51,    "count": 10  }},"s": "ok"}`
 
 ### API Calls
 
 api:3 is a good example of a measurement, measured against some entity not created by namespace, but rather, stats creates the path /service/METHOD for you to query against, e.g. how many GETs have I done against the data service?
 
-curl -s "http://user:secret@endpoint/_stats/data/GET?k=user&l=api:3"  |jq .{"v": {  "sum": 5,  "min": 1,  "max": 1,  "count": 5  },  "s": "ok"}
+`curl -s "http://user:secret@endpoint/_stats/data/GET?k=user&l=api:3"  |jq .{"v": {  "sum": 5,  "min": 1,  "max": 1,  "count": 5  },  "s": "ok"}`
 
 or how many calls against the stats service …
 
-curl -s "http://user:secret@endpoint/_stats/stats/GET?k=user&l=api:3"  |jq .{ "v": {   "sum": 23,   "min": 1,   "max": 1,   "count": 23 }, "s": "ok" }
+`curl -s "http://user:secret@endpoint/_stats/stats/GET?k=user&l=api:3"  |jq .{ "v": {   "sum": 23,   "min": 1,   "max": 1,   "count": 23 }, "s": "ok" }`
 
 which increases by 1 every time I call it.
 
-curl -s "http://user:secret@endpoint/_stats/?l=api:3&gs=2016:3:6&ge=2016:3:8&break=0"  |jq .                                                                                       {"v": {    "2016:3:8": {      "sum": 93,      "min": 1,      "max": 1,      "count": 93    },    "2016:3:7": {      "sum": 57,      "min": 1,      "max": 1,      "count": 57    },    "2016:3:6": {      "sum": 9,      "min": 1,      "max": 1,      "count": 9    }  },  "s": "ok"}
+`curl -s "http://user:secret@endpoint/_stats/?l=api:3&gs=2016:3:6&ge=2016:3:8&break=0"  |jq .                                                                                       {"v": {    "2016:3:8": {      "sum": 93,      "min": 1,      "max": 1,      "count": 93    },    "2016:3:7": {      "sum": 57,      "min": 1,      "max": 1,      "count": 57    },    "2016:3:6": {      "sum": 9,      "min": 1,      "max": 1,      "count": 9    }  },  "s": "ok"}`
 
 In this example, only the measurement is present (l=api:3), no key or path exists thus we get a full breakdown of calls over api:v3, totals calls by hour.
 
