@@ -10,7 +10,7 @@ The XirSys platform consists of an Enterprise level application development and 
 
 * *Neurons* are the base Xirsys functionality carried by all nodes in a Xirsys network.
 
-* *Memory, *we provide an integral 4D data store accessible via REST/Websockets/TCP (tbd).
+* *Memory*, we provide an integral 4D data store accessible via REST/Websockets/TCP (tbd).
 
 For example, our Turn service is an Elixir application, loaded into an Elixir Stem, in real time, from Github. This is an additional take on typical Docker container management which deals with images only. We use images to create a runtime environment then inject application code dynamically into the Stem.
 
@@ -20,7 +20,7 @@ This provides a very natural development cycle for testing and deploying new cod
 2. Differentiate to Stems
 3. Launch on Stems
 
-For script language (JS) work this is very desirable. **Heavy up front compilation environments can still use the typical Docker repo services, and build entire containers before deployment.
+For script language (JS) work this is very desirable. Heavy up front compilation environments can still use the typical Docker repo services, and build entire containers before deployment.
 
 Currently we use this method to deploy applications across 5 clusters and 20 hosts.
 
