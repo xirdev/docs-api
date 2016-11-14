@@ -9,5 +9,4 @@
 * [Token Service](token-service.md)
 * [Hosts Service](hosts-service.md)
 * [Authorization Service](authorization-service.md)
-* [Hosts Service](hosts-service.md)
 
