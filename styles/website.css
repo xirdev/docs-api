@@ -11,7 +11,12 @@
 .markdown-section code { padding: .2em; margin: 0; font-size: .85em; background-color: black;} !
 
 
-.markdown-section table td {
-     background-color: grey;
-    color: black;
+.markdown-section table td,.markdown-section table th {
+
+padding: 6px 13px;
+
+border: 1px solid #ddd;
+
+color: #272a3a;
+
 }
