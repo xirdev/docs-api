@@ -10,47 +10,23 @@ The XirSys platform consists of an Enterprise level application development and 
 
 * *Neurons* are the base Xirsys functionality carried by all nodes in a Xirsys network.
 
-
-
 * *Memory, *we provide an integral 4D data store accessible via REST/Websockets/TCP (tbd).
-
-
 
 For example, our Turn service is an Elixir application, loaded into an Elixir Stem, in real time, from Github. This is an additional take on typical Docker container management which deals with images only. We use images to create a runtime environment then inject application code dynamically into the Stem.
 
-
-
 This provides a very natural development cycle for testing and deploying new code.
 
-
-
 1. Push To Github
-
-
-
 2. Differentiate to Stems
-
-
-
 3. Launch on Stems
-
-
 
 For script language (JS) work this is very desirable. **Heavy up front compilation environments can still use the typical Docker repo services, and build entire containers before deployment (tbd).**
 
-
-
 Currently we use this method to deploy applications across 5 clusters and 20 hosts.
-
-
 
 The Xirsys platform is very easily installed on a cluster, and a fully running system can be installed locally for development purposes.
 
-
-
 # Neurons
-
-
 
 All Xirsys nodes are Neurons. The Neuron contains the coordination primitives of the system; Data, Api, and Websocket support. All Neurons are equal and are aware of each other. If a neuron fails to ping the others on a regular basis the others tidy up connections/data belonging to the failed neuron on their host.
 
