@@ -6,4 +6,7 @@
 
 .markdown-section {
     color: white;
+    code {
+        color: black;
+    }
 }
