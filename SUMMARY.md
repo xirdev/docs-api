@@ -5,4 +5,5 @@
 * [Enterprise](enterprise.md)
 * [Namespace Service](namespace-servoce.md)
 * [Stats Service](stats-service.md)
+* [Account Service](account-service.md)
 
