@@ -69,6 +69,8 @@ Subsequent versions of Xirsys will come equipped with a _service service where n
 
 Using the Xirsys HTTP API, you can GET/PUT/POST/DELETE to any service using the following syntax (depending on applicability). The basic shape of all the commands is the same, and references to keys, layers etc are consistent, there are however parameter variations when required.
 
+Please note, your username and secret are required. All your data resides in it's own database bucket within the Xirsys system.
+
 ## GET
 
 A value for a specific key ...
