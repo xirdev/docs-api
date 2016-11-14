@@ -152,15 +152,13 @@ Grafana ([http://grafana.org](http://grafana.org)) is a terrific real time data 
 
 Xirsys leverages Grafana visualization by providing a data source that uses the standard Xirsys REST Api as a datasource.
 
-
+![](/assets/image_2.png)
 
 Simply point Grafana at one of our many cluster entry urls **using your own credentials** and you may access your data in the measurement/entity configuration of the Xirsys stats service.
-
-![image alt text](image_3.png)
+![](/assets/image_3.png)
 
 For example,
 
-![image alt text](image_4.png)
 
 Notice the metrics, turn:recv, turn:sent with the path that the series applies too.
 
@@ -176,22 +174,3 @@ From the Grafana editor you may select the metrics and paths available via drop 
 
 * Xirsys may run Grafana as a standard service on all of our hosts.
 
-# Aside: Partitioning of Data
-
-Before examining account API it’s worth mentioning how data is partitioned and indexed within CouchDB.
-
-The first important point to note is that data pertaining to a given user is contained within it’s own CouchDB bucket. Each bucket has it’s own indexes. Access to raw CouchDB data could be provided directly for given users without compromising any other data in the system. Obviously, this could be very useful in lot’s of enterprise contexts we can’t think of - e.g. replication scenarios.
-
-There is a top level account structure, for example, when you subscribe to Xirsys you get a top level account. However, each top level account can create subsequent accounts for themselves. From the context of Xirsys operation, this provides us with the potential to have "resellers". Each reseller may use the API to manage sub accounts, and create their own turn/???? Service. Each sub account of a reseller is also partitioned into their own CouchDB bucket. Access to this structure is handled by the API we have already investigated by overloading the user:secret parameters when calling the API.
-
-In Xirsys there is 1 top level account called $sys. $sys has it’s own CouchDB bucket named kv4_$sys_data, this bucket contains all top level accounts. In addition it contains all system metadata, host subscriptions, and all other data that makes the system tick. It is also available via the REST api, so can be queried and updated in real time.
-
-Thus when a top level account is authenticated it’s authenticated in the $sys bucket.
-
-Whenever an account in $sys creates data (using the API) the information is stored in that accounts bucket. For example, if you have the account name "cool", then your data is stored in bucket kv4_cool_data.
-
-If "cool" is a reseller, and adds it’s own sub-account, say “woot”, then that sub-account is authenticated from the cool bucket, but it’s data is saved in kv4_cool)woot_data.
-
-This hierarchy is only two levels deep.
-
-Within each of these buckets, at any level of account, you will find KV4 layers corresponding to the services that that particular account is using. If it doesn’t use a given service the data won’t exist.
