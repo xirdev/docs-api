@@ -20,7 +20,7 @@ This provides a very natural development cycle for testing and deploying new cod
 2. Differentiate to Stems
 3. Launch on Stems
 
-For script language (JS) work this is very desirable. **Heavy up front compilation environments can still use the typical Docker repo services, and build entire containers before deployment (tbd).**
+For script language (JS) work this is very desirable. **Heavy up front compilation environments can still use the typical Docker repo services, and build entire containers before deployment.
 
 Currently we use this method to deploy applications across 5 clusters and 20 hosts.
 
