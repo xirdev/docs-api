@@ -94,3 +94,6 @@ Delete all keys at path.
 curl -XDELETE "https://user:secret@endpoint/_servicename/my/path"
 
 **Note, that the prefix (_servicename) used in the API is the layer that the data resides in.**
+
+
+Again this is the general shape of the API, now please check the specifics for each service.
