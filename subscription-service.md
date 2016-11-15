@@ -40,9 +40,9 @@ Because a subscription is available via the _subs service it may be deleted on d
 
 ### Kicking a Room
 
-`curl -XDELETE "https://user:secret@endpoint/_subs/my/path/topic"
+`curl -XDELETE "https://user:secret@endpoint/_subs/my/path/topic"`
 
-`## Banning
+## Banning
 
 Please see Authorization service for banning.
 
@@ -62,5 +62,4 @@ Probably the most interesting piece of data there is the origin server that the 
 
 ## Get specific subscription data.
 
-`curl  "https://user:secret@endpoint/_subs/my/path/topic?k=chatter
-`
+`curl  "https://user:secret@endpoint/_subs/my/path/topic?k=chatter`
