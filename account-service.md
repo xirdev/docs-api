@@ -34,8 +34,8 @@ Post a login name and password to /users/admins, for an administrator login.
 
 To login as an administrator, just use the following syntax in the login credentials.
 
-`curl "https://user:admin_key#admin_password@endpoint/_data/my/path"
-`
+`curl "https://user:admin_key#admin_password@endpoint/_data/my/path"`
+
 Notice that the secret is now loaded with 2 fields of information separated by a "#".
 
 We need to have the main Xirsys account holder username (ident), and once we have that we can authenticate the admin within that context.
@@ -62,8 +62,8 @@ This will delete the sub-account and all it's data.
 
 Note: Sub-account data is completely self contained in it's own 'table', the entire 'table' is removed with this action.
 
-`curl -XDELETE "http://user:secret@endpoint/_acc/accounts?k=username'
-`
+`curl -XDELETE "http://user:secret@endpoint/_acc/accounts?k=username'`
+
 ### Get
 
 To get the details of a sub-account ...
