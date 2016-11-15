@@ -18,9 +18,11 @@ The data service provides for the creation of user data on the tree in the data 
 ### Get a Value
 
 `curl "https://user:secret@endpoint/_data/my/path?k=key"`
+
 ### Get list of keys
 
 `curl "https://user:secret@endpoint/_data/my/path"`
+
 ### Get timeseries for a key
 
 `curl "https://user:secret@endpoint/_data/my/path?time_series=1"`
