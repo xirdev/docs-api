@@ -12,3 +12,6 @@ body {
 .book-header {
     background-color: #5C5D5F;
 }
+.book-header .btn.pull-right {
+    visibility: hidden;
+}
