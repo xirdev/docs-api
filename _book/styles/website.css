@@ -37,7 +37,7 @@ body {
 #book-search-input {
     background-color: #6D6E70;
 }
-#book-search-input input{
+#book-search-input input, #book-search-input input:hover, #book-search-input input:focus, #book-search-input input:active {
     color: #FFF;
 }
 
