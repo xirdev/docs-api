@@ -34,8 +34,11 @@ body {
  * Left Menu
  **/
 
-#book-search-input, #book-search-input input {
+#book-search-input {
     background-color: #6D6E70;
+}
+#book-search-input input{
+    color: #FFF;
 }
 
 .book-summary {
