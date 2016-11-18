@@ -34,7 +34,7 @@ body {
  * Left Menu
  **/
 
-#book-search-input {
+#book-search-input, #book-search-input input {
     background-color: #6D6E70;
 }
 
