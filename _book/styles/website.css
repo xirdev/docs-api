@@ -15,6 +15,7 @@ body {
 .book-header {
     background-color: #5C5D5F;
     height: 150px;
+    margin-bottom: 40px;
 }
 
 .book-header .btn.pull-right, .book-header .dropdown.pull-right {
