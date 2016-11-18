@@ -9,6 +9,6 @@ body {
 }
 
 //BOOK HEADER
-.book-body .book-inner .book-header a {
+.book-body .book-inner .book-header {
     visibility: 'hidden';
 }
