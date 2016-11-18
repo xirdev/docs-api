@@ -9,6 +9,6 @@ body {
 }
 
 //BOOK HEADER
-.book-body>.book-inner>.book-header>btn.pull-right {
+.book-body .book-inner .book-header btn.pull-right {
     visibility: hidden;
 }
