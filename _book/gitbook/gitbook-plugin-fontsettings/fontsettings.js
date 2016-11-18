@@ -8,7 +8,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
     var fontState;
 
     // Default themes
-    var THEMES = [
+    /*var THEMES = [
         {
             config: 'white',
             text: 'White',
@@ -24,7 +24,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
             text: 'Night',
             id: 2
         }
-    ];
+    ];*/
 
     // Default font families
     var FAMILIES = [
