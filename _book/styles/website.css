@@ -10,5 +10,5 @@ body {
 
 //BOOK HEADER
 .book-body .book-inner .book-header {
-    visibility: hidden;
+    background-color: #ff0000;
 }
