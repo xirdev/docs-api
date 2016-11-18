@@ -9,3 +9,8 @@ body {
  background-color: #E6E6E6;
 
 }
+
+//BOOK HEADER
+.book-body>.book-inner>.book-header>btn.pull-right {
+    visible: 'hidden';
+}
