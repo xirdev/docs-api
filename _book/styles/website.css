@@ -36,6 +36,9 @@ body {
 
 #book-search-input {
     background-color: #6D6E70;
+    border-bottom-color: #58585B;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }
 #book-search-input input, #book-search-input input:hover, #book-search-input input:focus, #book-search-input input:active {
     color: #FFF;
