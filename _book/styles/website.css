@@ -8,11 +8,15 @@ body {
     background-color: #E6E6E6;
 }
 
-/* BOOK HEADER */
+/* 
+ * BOOK HEADER 
+ **/
+
 .book-header {
     background-color: #5C5D5F;
     height: 150px;
 }
+
 .book-header .btn.pull-right, .book-header .dropdown.pull-right {
     visibility: hidden;
 }
