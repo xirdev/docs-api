@@ -28,3 +28,11 @@ body {
     width: 100%;
     font-size: 40px;
 }
+
+/*
+ * Left Menu
+ **/
+
+#book-search-input {
+    background-color: #6D6E70;
+}
