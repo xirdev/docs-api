@@ -15,3 +15,7 @@ body {
 .book-header .btn.pull-right, .book-header .dropdown.pull-right {
     visibility: hidden;
 }
+
+.book-header h1 {
+    color: #FFF;
+}
