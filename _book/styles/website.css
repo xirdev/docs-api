@@ -40,3 +40,7 @@ body {
 .book-summary {
     background-color: #454547;
 }
+
+.book-summary nav ul a {
+    color: #FFF;
+}
