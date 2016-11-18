@@ -44,3 +44,7 @@ body {
 .book-summary ul.summary li a, .book-summary ul.summary li span {
     color: #FFF;
 }
+
+.boo-summary ul.summary li.active>a {
+    color: #B6E9A1;
+}
