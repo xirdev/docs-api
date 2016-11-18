@@ -12,5 +12,5 @@ body {
 
 //BOOK HEADER
 .book-body>.book-inner>.book-header>btn.pull-right {
-    visible: 'hidden';
+    visibility: hidden;
 }
