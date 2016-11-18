@@ -41,6 +41,6 @@ body {
     background-color: #454547;
 }
 
-.book-summary nav ul a {
+.book-summary .summary li a {
     color: #FFF;
 }
