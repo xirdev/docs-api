@@ -15,10 +15,12 @@ body {
 /* CSS for website */
 
 .markdown-section code { 
-    padding: .2em; 
+    padding: 10px; 
     margin: 0; 
     font-size: .85em; 
-    background-color: #8a8686;
+    background-color: #FFF;
+    width: 100%;
+    display: block;
 }
 
 
