@@ -19,3 +19,73 @@ border: 1px solid #ddd;
 color: #272a3a;
 
 }
+
+/* CSS for website */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,700,900');
+
+body, html, button, input, select, textarea, .pure-g [class *= "pure-u"] {    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+
+body {
+    background-color: #4C4C4E;
+}
+
+.book-body {
+    background-color: #E6E6E6;
+}
+
+/* 
+ * BOOK HEADER 
+ **/
+
+.book-header {
+    background-color: #5C5D5F;
+    height: 150px;
+    margin-bottom: 40px;
+}
+
+.book-header .btn.pull-right, .book-header .dropdown.pull-right {
+    visibility: hidden;
+}
+
+.book-header h1 {
+    color: #FFF;
+    opacity: 1;
+    transition: none;
+    width: 100%;
+    font-size: 40px;
+}
+
+/*
+ * Left Menu
+ **/
+
+#book-search-input {
+    background-color: #6D6E70;
+    border-bottom-color: #58585B;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+#book-search-input input, #book-search-input input:hover, #book-search-input input:focus, #book-search-input input:active {
+    color: #FFF;
+}
+
+.book-summary {
+    background-color: #3D3D3F;
+}
+
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+    color: #FFF;
+}
+
+.book-summary ul.summary li.active>a {
+    color: #B6E9A1;
+}
+
+.book-summary ul.summary li a.gitbook-link {
+    visibility: hidden;
+}
+
+.book-summary ul.summary li.divider {
+    background-color: #58585B;
+}
