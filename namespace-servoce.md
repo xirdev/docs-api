@@ -10,11 +10,14 @@ The namespace is a hint to all services that the user has a specific hierarchy o
 **
 ## Create a new path in the public tree …
 
-`curl -X PUT "https://user:secret@endpoint/_ns/my/path"
-`
+```
+curl -X PUT "https://user:secret@endpoint/_ns/my/path"
+```
 ## Delete Path ...
 
-`curl -X DELETE "https://user:secret@endpoint/_ns/my/path"`
+```
+curl -X DELETE "https://user:secret@endpoint/_ns/my/path"
+```
 
 
 Note: This deletes all paths under the provided.
@@ -23,14 +26,20 @@ Note: This deletes all paths under the provided.
 
 All tree nodes under the specified path for the _ns service …
 
-`curl "https://user:secret@endpoint/_ns/my/path"`
+```
+curl "https://user:secret@endpoint/_ns/my/path"
+```
 
 
 All nodes to the given depth under the current path …
 
-`curl "https://user:secret@endpoint/_ns/my/path?depth=2"`
+```
+curl "https://user:secret@endpoint/_ns/my/path?depth=2"
+```
 
 
 To list your entire namespace to segment depth 10 …
 
-`curl "https://user:secret@endpoint/_ns/depth=10`
+```
+curl "https://user:secret@endpoint/_ns/depth=10
+```

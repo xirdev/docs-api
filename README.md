@@ -30,7 +30,7 @@ KV4 is a 4 dimensional key value store ....
 
 This can be viewed as a tree with multiple layers.
 
-![](/_book/layers.png)
+![](/layers.png)
 
 The key to understanding the Xirsys Platform is that the entire system is based on this data model, all existing and future services will use it, and you can use it, using the "data" service!
 
@@ -74,29 +74,29 @@ Please note, your username and secret are required. All your data resides in it'
 ## GET
 
 A value for a specific key ...
-
+```
 curl "https://user:secret@endpoint/_servicename/my/path?k=key"
-
+```
 All keys at node
-
+```
 curl "https://user:secret@endpoint/_servicename/my/path"
-
+```
 ## POST/PUT
-
+```
 curl -XPOST -H 'Content-type: application/json' "https://user:secret@endpoint/_servicename/my/path" -d '{"k": "mykey","v": "myvalue"}'
-
+```
 You typically PUT to create new entities, and POST to update, e.g. you may create and update accounts respectively.
 
 ## DELETE
 
 Delete a key.
-
+```
 curl -XDELETE "https://user:secret@endpoint/_servicename/my/path?k=key"
-
+```
 Delete all keys at path.
-
+```
 curl -XDELETE "https://user:secret@endpoint/_servicename/my/path"
-
+```
 **Note, that the prefix (_servicename) used in the API is the layer that the data resides in.**
 
 
