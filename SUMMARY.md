@@ -1,7 +1,8 @@
 # Summary
 
-* [Introduction](README.md)
-* [Quick Start](quick-start.md)
+* [Quick Start](README.md)
+* [Using Xirsys Portal](using-xirsys-portal.md)
+* [Xirsys API](xirsys-api.md)
 * [Namespace Service](namespace-servoce.md)
 * [Subscription Service](subscription-service.md)
 * [Data Service](data-service.md)
@@ -10,5 +11,4 @@
 * [Token Service](token-service.md)
 * [Hosts Service](hosts-service.md)
 * [Geo Service](geo-endpoints.md)
-* [Using Xirsys Portal](using-xirsys-portal.md)
 

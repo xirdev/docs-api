@@ -1,103 +1,112 @@
-# Beta Introduction
+# Getting Started Guide - XirSys v3 Beta
 
-Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around Docker! The new platform is a general purpose cloud application server, which happens to do TURN.
+Welcome to the XirSys v3 Beta. This new release brings a whole host of new and exciting features to power your next distributed application, including TURN \/ STUN server support, distributed messaging, real-time flexible data storage and more.
 
-Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 still supports the V2 API.
+This document has been written to provide a quick "getting started" guide in a few short steps. By following this guide, you will quickly have a working video application running in your browser and connected to your XirSys v3 Beta account.
 
-This document describes the V3 API. To read more about the platform itself, visit the Enterprise documentation.
+## First Step
 
-# Nomenclature
+For this guide, we're going to use the XirSys XSDK framework repository. You can view the code for this framework at:
 
-The Xirsys platform uses a cellular analogy to describe it's topology and function, the API docs refer to "neurons", "cells" and so forth, so we define the terms here:
-
-* *Stems* are containers which provide a specific runtime, e.g. Erlang, Node.js, .NET Core etc.
-
-* *Cells* are applications which are loaded from a Git Repository (Github) into a stem to provide a differentiated cell (container) with a specific function.
-
-* *Neurons* are the base Xirsys functionality carried by all nodes in a Xirsys network. For the purpose of these docs, you can think of a neuron as a host.
-
-* *Memory, *we provide an integral 4D data store accessible via REST/Websockets/TCP (tbd).
-
-# Data Model - KV4
-
-Before proceeding into the structure of services, it’s worthwhile examining the structure of KV4 data as all other services key off it’s influence. Understanding KV4 is essential to understand the system. 
-
-KV4 is a 4 dimensional key value store .... 
-
-### Dimensional Progression
-
-<table> <tr> <td>Dimension</td> <td>Description</td> </tr> <tr> <td>1D</td> <td>Not much to say about this a hash table is a 1D k/v store</td> </tr> <tr> <td>2D</td> <td>Index a hash table by path. Each path has a hash at each segment junction.</td> </tr> <tr> <td>3D</td> <td>Index a hash table by path / layer. Each segment/layer has a hash</td> </tr> <tr> <td>4D</td> <td>An 3D hash hash where each K/V is a time series, that is, nothing is deleted.</td> </tr></table>
-
-This can be viewed as a tree with multiple layers.
-
-![](/layers.png)
-
-The key to understanding the Xirsys Platform is that the entire system is based on this data model, all existing and future services will use it, and you can use it, using the "data" service!
-
-
-# Service Overview
-
-Xirsys is based around a dynamically expanding set of services. Basic services include; accounts, namespace, data, stats, and authorization. Extended services include; turn and video processing, with more to come.
-
-Each service manages a layer of the KV4 tree and will create or recognise various paths (entities) in the tree that are significant to it. **The service name is the data layer name.**
-
-A service provides some entity which is identified by path and key, .e.g,
-
-* The account service recognizes "/_acc/accounts?k=myident"
-
-* The subscriptions service recognizes "/_subs/domain/app/room/topic?k=chatter"
-
-The API is "soft" in that a new service may be added which may interact with other data in the system - typically for the same path.
-
-**Internal** services are those contained within the neuron itself. Currently recognised internal services are …
-
-<table> <tr> <td>Internal Service</td> <td>Prefix</td> <td>Layer</td> </tr> <tr> <td>accounts</td> <td>_acc</td> <td>*acc</td> </tr> <tr> <td>namespace</td> <td>_ns</td> <td>*ns</td> </tr> <tr> <td>subscriptions</td> <td>_subs</td> <td>*subs</td> </tr> <tr> <td>authorization</td> <td>_auth</td> <td>*auth</td> </tr> <tr> <td>stats</td> <td>_stats</td> <td>*stats</td> </tr> <tr> <td>user data</td> <td>_data</td> <td>*data</td> </tr> <tr> <td>host</td> <td>_host</td> <td>n/a</td> </tr> <tr> <td>token</td> <td>_token</td> <td>n/a</td> </tr></table>
-
-token and host services are virtual, they don't correspond to any persistent KV4 layer.
-
-Xirsys also supports services external to the neuron, like turn and video processing; Although they run on the same host as the neuron, they communicate only via the public APIs. **In fact, external services may be arbitrary, server side apps.**
-
-<table> <tr> <td>External Service</td> <td>Prefix</td> <td>Layer</td> </tr> <tr> <td>turn</td> <td>_turn</td> <td>*turn</td> </tr> <tr> <td>video</td> <td>_video</td> <td>*video</td> </tr></table>
-
-This model then, allows a base set of Xirsys system hosts that fulfill infrastructure requirements yet allows clean integration of external service hosts and their data.
-
-External services, require to be registered with the base system which then proxies requests, after authorization etc, to the "best" external service host based on load/location etc. This requires that prefix names (e.g. _turn etc ) are always unique.
-
-Subsequent versions of Xirsys will come equipped with a _service service where new external services can be added dynamically.
-
-# The Shape of the Service API
-
-Using the Xirsys HTTP API, you can GET/PUT/POST/DELETE to any service using the following syntax (depending on applicability). The basic shape of all the commands is the same, and references to keys, layers etc are consistent, there are however parameter variations when required.
-
-Please note, your username and secret are required. All your data resides in it's own database bucket within the Xirsys system.
-
-## GET
-
-A value for a specific key ...
+```bash
+https://github.com/xirdev/xsdk.js
 ```
-curl "https://user:secret@endpoint/_servicename/my/path?k=key"
-```
-All keys at node
-```
-curl "https://user:secret@endpoint/_servicename/my/path"
-```
-## POST/PUT
-```
-curl -XPOST -H 'Content-type: application/json' "https://user:secret@endpoint/_servicename/my/path" -d '{"k": "mykey","v": "myvalue"}'
-```
-You typically PUT to create new entities, and POST to update, e.g. you may create and update accounts respectively.
 
-## DELETE
+Here, however, we'll be using the compiled version of this framework which can be found at:
 
-Delete a key.
+```bash
+http://cdn.xirsys.com/xsdk
 ```
-curl -XDELETE "https://user:secret@endpoint/_servicename/my/path?k=key"
-```
-Delete all keys at path.
-```
-curl -XDELETE "https://user:secret@endpoint/_servicename/my/path"
-```
-**Note, that the prefix (_servicename) used in the API is the layer that the data resides in.**
 
+We'll start by creating a new HTML file on your machine. You can put this wherever you feel best. For this example, we won't need a development web server running, but you're free to do so if you wish.
 
-Again this is the general shape of the API, now please check the specifics for each service.
+In your HTML file, copy the following markup:
+
+```html
+<DOCTYPE>
+<html>
+  <head>
+    <title>Xirsys XSDK: WebRTC Example</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.xirsys.com/css/1.0.0/xsdk.css"></link>
+    <script src="//cdn.xirsys.com/libs/1.0.0/xsdk.js"></script>
+    <script>
+      <!-- your code will go here //-->
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+This file simply provides the bare bones markup necessary for any HTML page, complete with tags to load in the XSDK CSS and JavaScript code necessary to power our application.
+
+## Second Step
+
+The next step will be to call the XSDK library and pass it your account details. This will fire the necessary code to build the video application and connect it to your XirSys account.
+
+Where is says `<!-- your code will go here -->` in the HTML file you just created, remove that line and enter the following code:
+
+```js
+new $xirsys.quickstart({
+  ident : '',
+  secret : '',
+  domain : '',
+  secure : 1
+});
+```
+
+If you now open the HTML file in a browser, you should see that it now displays an application like that displayed below.
+
+![](/assets/webrtc-app.gif)
+
+However, this application won't yet work until we provide some more detail.
+
+## Third Step
+
+To acquire these details, we'll need to login to the XirSys dashboard. Go ahead and do this by navigating to the following URL:
+
+```
+https://ws.xirsys.com/dashboard/signin
+```
+
+Once logged in you should see the screen below:
+
+![](/assets/dashboard-1.gif)
+
+Two of the values we need are right here. The first is the username at the top of the page, depicted by the word `myuser`. We call this the `ident`. Go ahead and copy that word to the ident variable in the page.
+
+The second value here is the `API Token` value, represented by the long list of characters. You can go ahead and put that in the HTML page, also.
+
+The remaining `domain` value will need a bit more effort, as the XirSys platform will require that you create this value in the dashboard in order to expose it to your application.
+
+In the dashboard, the domain value is represented as `Channels`. It represents a namespace, which is a way to tag a room or group of data within the XirSys platform so that you can reference it later.
+
+We can create a new domain by simply typing it in the field provided where it says `Click to Add Channel` and then clicking the `+` button to the right of the field. The field will only accept a limited number of valid characters, including upper and lower case letters, numbers, hyphons, periods and underscores. Don't worry, though. If you type anything unsupported, it will tell you.
+
+Once you have created your Channel, go ahead and put that same value you just entered into the `domain` variable in the HTML page.
+
+Your HTML page should now look something like this:
+
+```html
+<DOCTYPE>
+<html>
+  <head>
+    <title>Xirsys XSDK: WebRTC Example</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.xirsys.com/css/1.0.0/xsdk.css"></link>
+    <script src="//cdn.xirsys.com/libs/1.0.0/xsdk.js"></script>
+    <script>
+      new $xirsys.quickstart({
+        ident : 'myuser',
+        secret : '1d484d60-6af4-1234-5678-abc123456789',
+        domain : 'some-domain.com',
+        secure : 1
+      });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+If you go ahead and run two copies of the HTML page in your browser, you should now be able to get one copy to connect to the other.
+
