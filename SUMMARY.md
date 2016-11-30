@@ -10,5 +10,5 @@
 * [Token Service](token-service.md)
 * [Hosts Service](hosts-service.md)
 * [Geo Service](geo-endpoints.md)
-
+* [Using Xirsys Portal](using-xirsys-portal.md)
 
