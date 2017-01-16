@@ -19,13 +19,13 @@ TEST: data delete should delete 1 element
 ### Deletes path in the data layer
 
 ```
-
+TEST: data delete should delete 1 element
 ```
 
 ### Get a Value
 
 ```
-
+TEST: data get should get a value
 ```
 
 ### Get list of keys
