@@ -5,7 +5,7 @@ The data service provides for the creation of user data on the tree in the data 
 ## Create
 
 ```
-curl -XPOST -H 'Content-type: application/json'  "http://user:secret@endpoint/_data/my/path" -d '{"k": "mykey","v": "myvalue"}'
+TEST: data put 1 should add user data at path
 ```
 
 ## Delete
@@ -13,25 +13,25 @@ curl -XPOST -H 'Content-type: application/json'  "http://user:secret@endpoint/_d
 ### Deletes a key in the data layer
 
 ```
-curl -X DELETE "https://user:secret@endpoint/_data/my/path?k=key"
+TEST: data delete should delete 1 element
 ```
 
 ### Deletes path in the data layer
 
 ```
-curl -X DELETE "https://user:secret@endpoint/_data/my/path"
+
 ```
 
 ### Get a Value
 
 ```
-curl "https://user:secret@endpoint/_data/my/path?k=key"
+
 ```
 
 ### Get list of keys
 
 ```
-curl "https://user:secret@endpoint/_data/my/path"
+TEST: data list should list two elements at same path
 ```
 
 ### Get timeseries for a key
