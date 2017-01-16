@@ -40,24 +40,8 @@ TEST: data list should list two elements at same path
 curl "https://user:secret@endpoint/_data/my/path?time_series=1"
 ```
 
-Time series may be queried using the same syntax for stats queries, where gs/ge are group start/group end resp, and broken into year:month:day:hour:minute
+Time series may be queried using the same syntax for stats queries, where gs/ge are group start/group end resp, and broken into year:month:day:hour:minute:second
 
 ```
-curl -s  "http://user:secret@endpoint/_data/my/path?k=mykey&time_series=1&gs=2016:3:16:3:4&ge=2016:3:16:3:20"  | jq . 
-
-{
- "v": [
-   [
-     1458109254,
-     "user",
-     "myvalue"
-   ],
-   [
-     1458109242,
-     "user",
-     "myvalue"
-   ]
- ],
- "s": "ok"
-}
+TEST: data time series should return all action at this path
 ```
