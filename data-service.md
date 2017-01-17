@@ -24,6 +24,12 @@ Although, you're required to supply the up to date version id, Xirsys, doesn't u
 TEST: data delete should delete 1 element
 ```
 
+On successful delete you receive an ok, with the numer of elements deleted. For a single key delete this is always 1. However, by omitting the k, you can do a full path delete.
+
+```
+TEST: data delete path
+```
+
 ### Get a Value
 
 ```
