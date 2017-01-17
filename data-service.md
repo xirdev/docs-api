@@ -8,9 +8,15 @@ The data service provides for the creation of user data in the data layer.
 TEST: data put 1 should add user data at path
 ```
 
-All Xirsys services return a version id _ver_ when you create or get a value.
+## A Note on Locking
 
-This can be ignored unless you're going to update the key value, at which point Xirsys employs **optimistic locking** to make sure you don't overwrite someone elses changes. When you update a value make sure you include the ver in your updated object.
+All Xirsys services return a version id &lt;pre&gt;&lt;code&gt;_ver&lt;/code&gt;&lt;/code&gt;_ when you create or get a value.
+
+This can be ignored unless you're going to update the value. Xirsys employs **optimistic locking** to make sure you don't overwrite someone elses changes. When you update a value make sure you include the _ver_ in your updated object - you'll be warned if you forget with a _ver_missing error. If a new version of the object has been created since you received your version, you'll get a **version\_conflict** error returned. If someone is in process of updating the object,  then a **locked** error will be returned.
+
+Although, you're required to supply the up to date version id, Xirsys, doesn't update in place. Instead we always save your old object, which you may retrieve via the time series. By never updating in place, Xirsys maintains an audit trail on all data.
+
+
 
 ## Delete
 
