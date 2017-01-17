@@ -42,4 +42,5 @@ TEST: data time series should return all action at this path
 
 The array structure returned has the following structure
 
-[timestamp,whoperformedoperation,value]
+\[timestamp,whoperformedoperation,value\]
+
