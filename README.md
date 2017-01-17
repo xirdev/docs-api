@@ -24,9 +24,7 @@ Each service has a service prefix which must be used in HTTP requests:
 | token | \_token | Get secure/expiring tokens for your users to connect to our services. |
 | discovery | \_ds | query any of the services above to find the existing paths/keys. |
 
-
-
-A service provides some entity which is identified by path and key, .e.g,
+A service provides some entity which is identified by path and key, .e.g:
 
 * The account service recognizes "/\_acc/accounts?k=myident"
 
@@ -34,15 +32,9 @@ A service provides some entity which is identified by path and key, .e.g,
 
 The API is "soft" in that a new service may be added which may interact with other data in the system - typically for the same path.
 
-**Internal** services are those contained within the neuron itself. Currently recognised internal services are …
-
-token and host services are virtual, they don't correspond to any persistent KV4 layer.
-
 Xirsys also supports services external to the neuron, like turn and video processing; Although they run on the same host as the neuron, they communicate only via the public APIs. **In fact, external services may be arbitrary, server side apps.**
 
 This model then, allows a base set of Xirsys system hosts that fulfill infrastructure requirements yet allows clean integration of external service hosts and their data.
-
-External services, require to be registered with the base system which then proxies requests, after authorization etc, to the "best" external service host based on load/location etc. This requires that prefix names \(e.g. \_turn etc \) are always unique.
 
 Subsequent versions of Xirsys will come equipped with a \_service service where new external services can be added dynamically.
 
