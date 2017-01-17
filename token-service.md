@@ -1,36 +1,29 @@
 # **Token Service**
 
-_token provides a token for signals authentication.
 
-You may create a token specifically for a path or a universal token. The V2 API requires a full path (/domain/application/room) while the V3 API requires just requires a token.
+This provides a token which allows a given user to connect to our websocket signal servers on the specified path \(created by \_ns\)
 
-To add a chatter key add k=chatter_key.
-
-```
-curl -s -XPUT "https://user:secret@endpoint/_token/my/path?k=chatter_key&expire=20"
-```
-
+The idea is you get a token for your user, who can then login directly with it, this is something that should be done by your server, so as not to expose your credentials.
 
 ```
-{
-  "v":"ZG1enoNPMqSLf93auDFjMD84jTVRMsoor7nHHMGoG_4HsH3ogWlNUmMwIFekwe44FEWYoBQMBAFfiFluzOL2K6QZJ2Qc4H1-bCaYcYpuRB9Tvcqyv9l53RHG1SUHdL7tCEjxrDDFDMtDrRgs5A",
-  "s": "ok"
-}
+PUT https://ident:secret@endpoint/_token/path/to/channel?k=user&expire=0
 ```
 
-This example, generates a API V2 compatible token which includes the path specified, and only allows login to the specified path. It is equivalent to the V2 API /getToken url.
+| Param | Notes |
+| :--- | :--- |
+| k | Provide a name for your user. This name will be used for display purposes, and referencing the user in the given "channel". Note, if you omit the k parameter, a random userid will be generated |
+| expire | Expire the token ability to connect after X seconds. Omiting expire, expires the token after 60 seconds. If expire is 0, then token does not expire. |
+
+Http PUT is used as you're creating something new. The namespace you create a token for must exist,
+
+### Token Creation Failure
 
 ```
-curl -s -XPUT "https://user:secret@endpoint/_token?expire=20"
+TEST: token create no namespace should return {error,no_namespace}
 ```
 
-```
-{
-  "v": "tAbfpN-kmrxtRIV6JBgjUVA1ZDeLtypCx-x1MuIHSmdsA2NRDXCwtZmgzrV5t_TBEByXUh-nXhZt8Mvof2YP9VkL9KJmg7X-2U2DzHZ31GJ9ZW3CxgJMcaYHrC0v689RA25fusceIsBJSGoN4ggupeqp",
-  "s": "ok"
-}
-```
+### Token Creation Success
 
-Generates a token without a path requirement.
-
-An expiration of 0 is no expiration.
+```
+TEST: token create namespace exists should return {ok,token}
+```
