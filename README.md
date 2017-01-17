@@ -1,6 +1,6 @@
 # V3.0 API Introduction
 
-Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around Docker! The new platform is a general purpose cloud application server which happens to do TURN. The platform encompasses data storage facilities which we will see in action here, but for more information on the platform please read the Platform docs
+Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around Docker! The new platform is a general purpose cloud application server with data services which happens to do TURN. Please see the Platform docs for more Enterprise info.
 
 Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 still supports the V2 API.
 
@@ -9,6 +9,20 @@ This document describes the V3 API.
 # Service Overview
 
 Xirsys is based around a dynamically expanding set of services. Basic services include; accounts, namespace, data, stats, and authorization. Extended services include; turn and video processing, with more to come.
+
+Each service has a service prefix which must be used in HTTP requests:
+
+| Service | Prefix | Descrpition |
+| :--- | :--- | :--- |
+| accounts | \_acc | You may manage sub accounts. |
+| namespace | \_ns | Create a publicly available tree. |
+| turn | \_turn | Get ICE strings here! |
+| host | \_host | Find best loaded hosts. |
+| data | \_data | Store custom data. |
+| stats | \_stats | Store custom stats |
+| subscription | \_subs | Boot/List subscriptions \(chatters\) |
+| token | \_token | Get secure/expiring tokens for your users to connect to our services. |
+| discovery | \_ds | query any of the services above to find the existing paths/keys. |
 
 A service provides some entity which is identified by path and key, .e.g,
 
