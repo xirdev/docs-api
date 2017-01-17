@@ -6,32 +6,6 @@ Through an extensible REST API Xirsys 3.0 provides custom analytics and data sto
 
 This document describes the V3 API.
 
-# Nomenclature
-
-The Xirsys platform uses a cellular analogy to describe it's topology and function, the API docs refer to "neurons", "cells" and so forth, so we define the terms here:
-
-* _Stems_ are containers which provide a specific runtime, e.g. Erlang, Node.js, .NET Core etc.
-
-* _Cells_ are applications which are loaded from a Git Repository \(Github\) into a stem to provide a differentiated cell \(container\) with a specific function.
-
-* _Neurons_ are the base Xirsys functionality carried by all nodes in a Xirsys network. For the purpose of these docs, you can think of a neuron as a host.
-
-* \_Memory, \_we provide an integral 4D data store accessible via REST/Websockets/TCP \(tbd\).
-
-# Data Model - KV4
-
-Before proceeding into the structure of services, it’s worthwhile examining the structure of KV4 data as all other services key off it’s influence. Understanding KV4 is essential to understand the system.
-
-KV4 is a 4 dimensional key value store ....
-
-### Dimensional Progression
-
-This can be viewed as a tree with multiple layers.
-
-![](/layers.png)
-
-The key to understanding the Xirsys Platform is that the entire system is based on this data model, all existing and future services will use it, and you can use it, using the "data" service!
-
 # Service Overview
 
 Xirsys is based around a dynamically expanding set of services. Basic services include; accounts, namespace, data, stats, and authorization. Extended services include; turn and video processing, with more to come.
