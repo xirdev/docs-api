@@ -1,45 +1,29 @@
-# The Namespace Service
+## The Namespace Service \(\_ns\)
 
-Each service can create it's own hierarchy, but typically services will interact around the hierarchy created and managed by the Xirsys account holder via the namespace service.
+In the V2.0 API the concept of /domain/application/room exists. In V3.0 API these are generalized to multi segment paths, and go by the general term "namespaces". They are not called specifically "channels" as these paths can be used by many services; they are in fact a hint to services of the paths that the user wants to expose publicly. Thus, they are not tied to simply signals \(and hence channel nomenclature\).
 
-The namespace is effectively the public tree of the user and provides backwards compatibility with previous versions of Xirsys. Previously namespace were called channels, but can now be used in more scenarios, thus namespace is the more generic term.
+However, in the context of signals and turn as known by V2, the namepaces are exactly equivalent to /domain/application/room.
 
-The namespace is a hint to all services that the user has a specific hierarchy of names they want to work with, it is then up to the service if that namespace can be used in its context - if so, better, as it provides more context for the user.
+You are free to create namespaces to any depth with the V3 api.
 
-**Note: In the current version of Xirsys there is no "referential integrity" between layers, so paths in one layer are not tied to paths in others - only by convention.
-**
-## Create a new path in the public tree …
+### Create a new namespace
 
-```
-curl -X PUT "https://user:secret@endpoint/_ns/my/path"
-```
-## Delete Path ...
+To create a new namespace simply PUT a path to the \_ns service.
 
 ```
-curl -X DELETE "https://user:secret@endpoint/_ns/my/path"
+TEST: namespace create should return ok
 ```
 
+For convenience you don't need to put an object, just the path is required. Http PUT is used as you're creating something new.
 
-Note: This deletes all paths under the provided.
-
-## Get
-
-All tree nodes under the specified path for the _ns service …
+### Delete a namespace
 
 ```
-curl "https://user:secret@endpoint/_ns/my/path"
+TEST: namespace delete should delete the test user
 ```
 
-
-All nodes to the given depth under the current path …
-
-```
-curl "https://user:secret@endpoint/_ns/my/path?depth=2"
-```
-
-
-To list your entire namespace to segment depth 10 …
+### Listing Namespaces
 
 ```
-curl "https://user:secret@endpoint/_ns/depth=10
+TEST: namespace list should return 1 item
 ```
