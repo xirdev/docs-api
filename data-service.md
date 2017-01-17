@@ -30,7 +30,7 @@ On successful delete you receive an ok, with the numer of elements deleted. For 
 TEST: data delete path
 ```
 
-On deleting the all keys in the path itself disappears.
+_Note: Paths are not stored indepently of keys, except for the \_ns service. Therefore if you delete all keys in path the path itself is removed._
 
 ### Get a Value
 
