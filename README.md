@@ -4,7 +4,7 @@ Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around D
 
 Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 still supports the V2 API.
 
-This document describes the V3 API. 
+This document describes the V3 API.
 
 # Nomenclature
 
@@ -16,7 +16,7 @@ The Xirsys platform uses a cellular analogy to describe it's topology and functi
 
 * _Neurons_ are the base Xirsys functionality carried by all nodes in a Xirsys network. For the purpose of these docs, you can think of a neuron as a host.
 
-* _Memory, _we provide an integral 4D data store accessible via REST/Websockets/TCP \(tbd\).
+* \_Memory, \_we provide an integral 4D data store accessible via REST/Websockets/TCP \(tbd\).
 
 # Data Model - KV4
 
@@ -60,9 +60,9 @@ Subsequent versions of Xirsys will come equipped with a \_service service where 
 
 # The Shape of the Service API
 
-Using the Xirsys HTTP API, you can GET/PUT/POST/DELETE to any service using the following syntax \(depending on applicability\). The basic shape of all the commands is the same, and references to keys, layers etc are consistent, there are however parameter variations when required.
+Using the Xirsys HTTP API, you can GET/PUT/POST/DELETE to any service using the following syntax \(depending on applicability\). The basic shape of all the commands is the same, and references to keys, layers are consistent, there are however parameter variations when required.
 
-Please note, your username and secret are required. All your data resides in it's own database bucket within the Xirsys system.
+Note, your username and secret are required. All your data resides in it's own database \(bucket\) within the Xirsys system.
 
 ## GET
 
