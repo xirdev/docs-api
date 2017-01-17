@@ -4,6 +4,20 @@ Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around D
 
 Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 still supports the V2 API.
 
+# More Endpoints
+
+Xirsys is now available in the following regions:
+
+| Region | Endpoint | Location |
+| --- | --- | --- |
+| US West | ws.xirsys.com | San Jose, CA |
+| US East | us.xirsys.com | Washington, DC |
+| Europe | es.xirsys.com | Amsterdam |
+| Asia | ss.xirsys.com | Singapore |
+| Australia | ms.xirsys.com | Melbourne |
+
+as demand grows more data centers will be added. Each of these data centers contains a Xirsys cluster. All of these endpoints are equivalent and host the entire Xirsys REST API.
+
 # Service Overview
 
 Xirsys is based around a dynamically expanding set of services. Basic services include; accounts, namespace, data, stats and . Extended services include; turn and video processing, with more to come.
