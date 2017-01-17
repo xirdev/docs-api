@@ -24,6 +24,8 @@ Each service has a service prefix which must be used in HTTP requests:
 | token | \_token | Get secure/expiring tokens for your users to connect to our services. |
 | discovery | \_ds | query any of the services above to find the existing paths/keys. |
 
+
+
 A service provides some entity which is identified by path and key, .e.g,
 
 * The account service recognizes "/\_acc/accounts?k=myident"
