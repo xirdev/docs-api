@@ -26,7 +26,6 @@ KV4 is a 4 dimensional key value store ....
 
 ### Dimensional Progression
 
-<table> <tr> <td>Dimension</td> <td>Description</td> </tr> <tr> <td>1D</td> <td>Not much to say about this a hash table is a 1D k/v store</td> </tr> <tr> <td>2D</td> <td>Index a hash table by path. Each path has a hash at each segment junction.</td> </tr> <tr> <td>3D</td> <td>Index a hash table by path / layer. Each segment/layer has a hash</td> </tr> <tr> <td>4D</td> <td>An 3D hash hash where each K/V is a time series, that is, nothing is deleted.</td> </tr></table>
 
 This can be viewed as a tree with multiple layers.
 
@@ -51,13 +50,11 @@ The API is "soft" in that a new service may be added which may interact with oth
 
 **Internal** services are those contained within the neuron itself. Currently recognised internal services are …
 
-<table> <tr> <td>Internal Service</td> <td>Prefix</td> <td>Layer</td> </tr> <tr> <td>accounts</td> <td>_acc</td> <td>*acc</td> </tr> <tr> <td>namespace</td> <td>_ns</td> <td>*ns</td> </tr> <tr> <td>subscriptions</td> <td>_subs</td> <td>*subs</td> </tr> <tr> <td>authorization</td> <td>_auth</td> <td>*auth</td> </tr> <tr> <td>stats</td> <td>_stats</td> <td>*stats</td> </tr> <tr> <td>user data</td> <td>_data</td> <td>*data</td> </tr> <tr> <td>host</td> <td>_host</td> <td>n/a</td> </tr> <tr> <td>token</td> <td>_token</td> <td>n/a</td> </tr></table>
 
 token and host services are virtual, they don't correspond to any persistent KV4 layer.
 
 Xirsys also supports services external to the neuron, like turn and video processing; Although they run on the same host as the neuron, they communicate only via the public APIs. **In fact, external services may be arbitrary, server side apps.**
 
-<table> <tr> <td>External Service</td> <td>Prefix</td> <td>Layer</td> </tr> <tr> <td>turn</td> <td>_turn</td> <td>*turn</td> </tr> <tr> <td>video</td> <td>_video</td> <td>*video</td> </tr></table>
 
 This model then, allows a base set of Xirsys system hosts that fulfill infrastructure requirements yet allows clean integration of external service hosts and their data.
 
