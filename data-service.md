@@ -30,6 +30,8 @@ On successful delete you receive an ok, with the numer of elements deleted. For 
 TEST: data delete path
 ```
 
+On deleting the all keys in the path itself disappears.
+
 ### Get a Value
 
 ```
