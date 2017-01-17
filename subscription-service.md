@@ -4,31 +4,9 @@ When a chatter or turn client creates persistent connection to Xirsys the inform
 
 Historically this meeting point between users was denoted by the path /domain/application/room. This is no longer a restriction, but the legacy api enforces the the 3 segment path.
 
-## Topics
-
-Topics are extra classification that are created specifically by the \_subs service.
-
-The user may have constructed a path /my/path using the namespace service, but the \_subs service provides more granularity, by extending topic nodes from the existing path /my/path, e.g.
-
-* /my/path/topic1
-
-* /my/path/topic2
-
-Each topic node then contains subscription keys/values of chatters.
-
-This data is stored in the subs layer so there is no overlap with the base namespace, thus the base namespace is shadowed. This is probably the best example of a service adorning the public namespace of the user with service specific information contained in a separate layer.
-
-### V2 API \(Legacy\)
-
-From an V2 API perspective the addition of a topic is a further classification of room to topics, e.g.
-
-/domain/application/room/topic
-
-and for the V2 API the system defaults to a default topic of "topic".
-
 ## Create
 
-You can't create subscriptions via HTTP at the moment, this is done using websockets typically.
+You can't create subscriptions via HTTP at the moment, this is done using websockets.
 
 ## Delete
 
