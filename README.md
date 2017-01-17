@@ -1,6 +1,6 @@
-# Beta Introduction
+# V3.0 API Introduction
 
-Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around Docker! The new platform is a general purpose cloud application server, which happens to do TURN.
+Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around Docker! The new platform is a general purpose cloud application server which happens to do TURN. The platform encompasses data storage facilities which we will see in action here, but for more information on the platform please read the Platform docs
 
 Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 still supports the V2 API.
 
@@ -9,8 +9,6 @@ This document describes the V3 API.
 # Service Overview
 
 Xirsys is based around a dynamically expanding set of services. Basic services include; accounts, namespace, data, stats, and authorization. Extended services include; turn and video processing, with more to come.
-
-Each service manages a layer of the KV4 tree and will create or recognise various paths \(entities\) in the tree that are significant to it. **The service name is the data layer name.**
 
 A service provides some entity which is identified by path and key, .e.g,
 
