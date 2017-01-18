@@ -52,7 +52,9 @@ curl "https://user:secret@endpoint/_data/my/path?time_series=1"
 
 The array structure returned has the following structure
 
-\[timestamp,whoperformedoperation,value\]
+```
+[timestamp,whoperformedoperation,value]
+```
 
 Time series may be queried using the same syntax for stats queries, where gs/ge are group start/group end respectively, and broken into year:month:day:hour:minute:second
 
