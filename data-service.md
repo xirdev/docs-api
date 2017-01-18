@@ -50,13 +50,15 @@ TEST: data list should list two elements at same path
 curl "https://user:secret@endpoint/_data/my/path?time_series=1"
 ```
 
+The array structure returned has the following structure
+
+\[timestamp,whoperformedoperation,value\]
+
 Time series may be queried using the same syntax for stats queries, where gs/ge are group start/group end respectively, and broken into year:month:day:hour:minute:second
 
 ```
 TEST: data time series should return all action at this path
 ```
 
-The array structure returned has the following structure
 
-[timestamp,whoperformedoperation,value]
 
