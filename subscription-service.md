@@ -35,13 +35,7 @@ Please see Authorization service for banning.
 This is a live list of active "chatters". Just the chatter keys
 
 ```
-curl -s  "https://user:secret@endpoint/_subs/richie.com/default/default/topic" | jq .
-{
-"v": [
-"rt"
-],
-"s": "ok"
-}
+subscriptions list should return 1 item
 ```
 
 Or more detailed subscription information of you request the values
