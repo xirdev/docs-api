@@ -46,6 +46,8 @@ TEST: subscriptions kick should kick a single subscriber
 curl -XDELETE "https://user:secret@endpoint/_subs/my/path/
 ```
 
+To remove all subscriptions for a room simply drop the key, and any keys on the path will be deleted.
+
 ## Banning
 
 Please see Authorization service for banning.
