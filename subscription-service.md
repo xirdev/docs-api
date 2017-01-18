@@ -35,7 +35,7 @@ Please see Authorization service for banning.
 This is a live list of active "chatters". Just the chatter keys
 
 ```
-subscriptions list should return 1 item
+TEST: subscriptions list should return 1 item
 ```
 
 Or more detailed subscription information of you request the values
