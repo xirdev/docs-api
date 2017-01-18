@@ -37,7 +37,7 @@ TEST: subscriptions get single should get a single subscriber
 Because a subscription is available via the \_subs service it may be deleted on demand. When a subscription is deleted it's removed from all neuron routers automatically, so a DELETE to the subs service is the same as kicking an existing user.
 
 ```
-TEST subscriptions kick should kick a single subscriber
+TEST: subscriptions kick should kick a single subscriber
 ```
 
 ### Kicking a Room
