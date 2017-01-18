@@ -21,7 +21,7 @@ TEST: subscriptions list should return 1 item
 Or more detailed subscription information of you request the values
 
 ```
-TEST: subscriptions list should return 1 item
+TEST: subscriptions as values should return 1 item
 ```
 
 Get specific subscription data.
