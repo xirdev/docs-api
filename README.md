@@ -4,11 +4,11 @@ Xirsys 3.0 introduces a completely rearchitected Xirsys platform, based around D
 
 Through an extensible REST API Xirsys 3.0 provides custom analytics and data storage for customers. Xirsys 3.0 still supports the V2 API.
 
-# More Endpoints
+# Gateways
 
 Xirsys is now available in the following regions:
 
-| Region | Endpoint | Location |
+| Region | Gateway | Location |
 | --- | --- | --- |
 | US West | ws.xirsys.com | San Jose, CA |
 | US East | us.xirsys.com | Washington, DC |
